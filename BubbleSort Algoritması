@@ -1,0 +1,51 @@
+#include <stdio.h>
+ 
+void bubble_sort(long [], long);
+ 
+int main()
+{
+  long array[1000],n ,i ,a ,c ,d , swap;
+ 
+  printf("Dizinin kac elemanli olacagini belirtin\n");
+  scanf("%ld", &n);
+  srand(time(NULL));
+  printf("Dizinin ilk hali:\n");
+  for(i=0; i<n; i++) 
+  {
+ 	array[i]=rand()%1001;
+ 	printf("%ld , ", array[i]);
+ 	
+  }
+  printf("\n\n");
+ 
+ 
+ bubble_sort(array, n);
+ 
+ printf("Dizinin bubble sort ile siralanmis hali:\n");
+ 
+  for ( c = 0 ; c < n ; c++ )
+     printf("%ld , ", array[c]);
+ 
+  return 0;
+}
+ 
+ 
+void bubble_sort(long list [], long n)
+{
+  long c, d, t;
+ 
+  for (c = 0 ; c < ( n - 1 ); c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (list[d] > list[d+1])
+      {
+        /* Swapping */
+ 
+        t         = list[d];
+        list[d]   = list[d+1];
+        list[d+1] = t;
+      }
+    }
+  }
+}
